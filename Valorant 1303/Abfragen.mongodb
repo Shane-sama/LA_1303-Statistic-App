@@ -3,30 +3,19 @@ use('Valorant');
 
 
 
-//Change the DATA in the () to sort whatever you want
-db.Item.find().sort({Winrate : -1})          
+//delete the "Agent : 1" and then change the "killrate" to whatever you want to sort.
+db.Item.find().sort({Agent : 1, killrate : -1})   
 
+
+
+
+// USE THIS IF YOU WANT TO FIND SPECIFIC DATA
+// lt = lesser than, gt = greater than, eq = equal to
+//lte = lesser or equal to, gte= greater or equal to, ne = not equal
+//db.Item.find({ KDRatio: { $lt : 1 }})
 
 
 //delete the // infront of limit if you want to limit the results to a certain amount
  //.limit(2) 
 
 
-//Change the DATA in the () to limit what you want to see
-//db.Item.find({ Winrate : 49.4})
-
-
-
-
-
-
-// Build an aggregation to view total sales for each product in 2014.
-//const aggregation = [
-  //{ $match: { Winrate : 1 }},
-  //{ $group: { _id: '$item' } }
-//];
-
-// Run the aggregation and open a cursor to the results.
-// Use toArray() to exhaust the cursor to return the whole result set.
-// You can use hasNext()/next() to iterate through the cursor page by page.
-//db.sales.aggregate(aggregation);
