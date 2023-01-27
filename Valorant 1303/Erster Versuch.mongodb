@@ -4,34 +4,47 @@
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
 // Select the database to use.
-use('mongodbVSCodePlaygroundDB');
+use('Valorant');
 
 // The drop() command destroys all data from a collection.
+//db.item.drop();
 // Make sure you run it against the correct database and collection.
-db.sales.drop();
+
 
 // Insert a few documents into the sales collection.
-db.sales.insertMany([
-  { '_id': 1, 'item': 'abc', 'price': 10, 'quantity': 2, 'date': new Date('2014-03-01T08:00:00Z') },
-  { '_id': 2, 'item': 'jkl', 'price': 20, 'quantity': 1, 'date': new Date('2014-03-01T09:00:00Z') },
-  { '_id': 3, 'item': 'xyz', 'price': 5, 'quantity': 10, 'date': new Date('2014-03-15T09:00:00Z') },
-  { '_id': 4, 'item': 'xyz', 'price': 5, 'quantity':  20, 'date': new Date('2014-04-04T11:21:39.736Z') },
-  { '_id': 5, 'item': 'abc', 'price': 10, 'quantity': 10, 'date': new Date('2014-04-04T21:23:13.331Z') },
-  { '_id': 6, 'item': 'def', 'price': 7.5, 'quantity': 5, 'date': new Date('2015-06-04T05:08:13Z') },
-  { '_id': 7, 'item': 'def', 'price': 7.5, 'quantity': 10, 'date': new Date('2015-09-10T08:43:00Z') },
-  { '_id': 8, 'item': 'abc', 'price': 10, 'quantity': 5, 'date': new Date('2016-02-06T20:20:13Z') },
+db.Item.insertMany([
+  { '_id': 1, 'Agent': 'Reyna', 'Win%': 50.2, 'pickrate%': 12.7, 'kill%': 14.8,'K/D Ratio' : 1.15 },
+  { '_id': 2, 'Agent': 'Jett', 'Win%': 49.3, 'pickrate%': 9.4, 'kill%': 10.6,'K/D Ratio' : 1.08 },
+  { '_id': 3, 'Agent': 'Neon', 'Win%': 48.1, 'pickrate%': 2.5, 'kill%': 2.6,'K/D Ratio' : 0.98 }, 
+  { '_id': 4, 'Agent': 'Phoenix', 'Win%': 50.1, 'pickrate%':  3.9, 'kill%': 4.2,'K/D Ratio' : 1.09 },
+  { '_id': 5, 'Agent': 'Fade', 'Win%': 49.4, 'pickrate%': 4.8, 'kill%': 4.5,'K/D Ratio' : 0.93 },
+  { '_id': 6, 'Agent': 'Brimstone', 'Win%': 50.6, 'pickrate%': 5.2, 'kill%': 4.9,'K/D Ratio' : 0.96 }, 
+  { '_id': 7, 'Agent': 'Yoru', 'Win%': 46.6, 'pickrate%': 2.2, 'kill%': 2.1,'K/D Ratio' : 0.97 },
+  { '_id': 8, 'Agent': 'Skye', 'Win%': 49, 'pickrate%': 3.5, 'kill%': 3.2,'K/D Ratio' : 0.92 },
+  { '_id': 9, 'Agent': 'Sage', 'Win%': 50.2, 'pickrate%': 11.3, 'kill%': 9.4,'K/D Ratio' : 0.90 },
+  { '_id': 10, 'Agent': 'Raze', 'Win%': 49.9, 'pickrate%': 7.1, 'kill%': 7.5,'K/D Ratio' : 1.03 },
+  { '_id': 11, 'Agent': 'Omen', 'Win%': 48.4, 'pickrate%': 6.3, 'kill%': 6.1,'K/D Ratio' : 0.97 },
+  { '_id': 12, 'Agent': 'Killjoy', 'Win%': 50.9, 'pickrate%': 5.5, 'kill%': 5.1,'K/D Ratio' : 0.99 }, 
+  { '_id': 13, 'Agent': 'Sova', 'Win%': 49.4, 'pickrate%': 5.3, 'kill%': 5,'K/D Ratio' : 0.97 },
+  { '_id': 14, 'Agent': 'Viper', 'Win%': 49.6, 'pickrate%': 4.9, 'kill%': 4.7,'K/D Ratio' : 0.97 },
+  { '_id': 15, 'Agent': 'Cypher', 'Win%': 48.9, 'pickrate%': 4.1, 'kill%': 3.9,'K/D Ratio' : 0.99 },
+  { '_id': 16, 'Agent': 'Chamber', 'Win%': 48.2, 'pickrate%': 3.1, 'kill%': 3.2,'K/D Ratio' : 1.06 },
+  { '_id': 17, 'Agent': 'KAY/O', 'Win%': 46.3, 'pickrate%': 3.3, 'kill%': 3.1,'K/D Ratio' : 0.90 },
+  { '_id': 18, 'Agent': 'Breach', 'Win%': 48.7, 'pickrate%': 2.5, 'kill%': 2.4,'K/D Ratio' : 0.94 },
+  { '_id': 19, 'Agent': 'Astra', 'Win%': 49.4, 'pickrate%': 1.4, 'kill%': 1.4,'K/D Ratio' : 1.03 },
+  { '_id': 20, 'Agent': 'Harbor', 'Win%': 46.1, 'pickrate%': 1, 'kill%': 0.9,'K/D Ratio' : 0.89 },
 ]);
 
 // Run a find command to view items sold on April 4th, 2014.
-db.sales.find({ date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });
+//db.sales.find({ date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });//
 
 // Build an aggregation to view total sales for each product in 2014.
-const aggregation = [
-  { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
-  { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
-];
+//const aggregation = [
+ // { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
+ // { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
+//];
 
 // Run the aggregation and open a cursor to the results.
 // Use toArray() to exhaust the cursor to return the whole result set.
 // You can use hasNext()/next() to iterate through the cursor page by page.
-db.sales.aggregate(aggregation);
+//db.sales.aggregate(aggregation);
