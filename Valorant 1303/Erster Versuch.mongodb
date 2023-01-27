@@ -1,50 +1,26 @@
-// MongoDB Playground
-// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
-// Make sure you are connected to enable completions and to be able to run a playground.
-// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
-// Select the database to use.
 use('Valorant');
 
-// The drop() command destroys all data from a collection.
-//db.item.drop();
-// Make sure you run it against the correct database and collection.
-
-
-// Insert a few documents into the sales collection.
 db.Item.insertMany([
-  { '_id': 1, 'Agent': 'Reyna', 'Win%': 50.2, 'pickrate%': 12.7, 'kill%': 14.8,'K/D Ratio' : 1.15 },
-  { '_id': 2, 'Agent': 'Jett', 'Win%': 49.3, 'pickrate%': 9.4, 'kill%': 10.6,'K/D Ratio' : 1.08 },
-  { '_id': 3, 'Agent': 'Neon', 'Win%': 48.1, 'pickrate%': 2.5, 'kill%': 2.6,'K/D Ratio' : 0.98 }, 
-  { '_id': 4, 'Agent': 'Phoenix', 'Win%': 50.1, 'pickrate%':  3.9, 'kill%': 4.2,'K/D Ratio' : 1.09 },
-  { '_id': 5, 'Agent': 'Fade', 'Win%': 49.4, 'pickrate%': 4.8, 'kill%': 4.5,'K/D Ratio' : 0.93 },
-  { '_id': 6, 'Agent': 'Brimstone', 'Win%': 50.6, 'pickrate%': 5.2, 'kill%': 4.9,'K/D Ratio' : 0.96 }, 
-  { '_id': 7, 'Agent': 'Yoru', 'Win%': 46.6, 'pickrate%': 2.2, 'kill%': 2.1,'K/D Ratio' : 0.97 },
-  { '_id': 8, 'Agent': 'Skye', 'Win%': 49, 'pickrate%': 3.5, 'kill%': 3.2,'K/D Ratio' : 0.92 },
-  { '_id': 9, 'Agent': 'Sage', 'Win%': 50.2, 'pickrate%': 11.3, 'kill%': 9.4,'K/D Ratio' : 0.90 },
-  { '_id': 10, 'Agent': 'Raze', 'Win%': 49.9, 'pickrate%': 7.1, 'kill%': 7.5,'K/D Ratio' : 1.03 },
-  { '_id': 11, 'Agent': 'Omen', 'Win%': 48.4, 'pickrate%': 6.3, 'kill%': 6.1,'K/D Ratio' : 0.97 },
-  { '_id': 12, 'Agent': 'Killjoy', 'Win%': 50.9, 'pickrate%': 5.5, 'kill%': 5.1,'K/D Ratio' : 0.99 }, 
-  { '_id': 13, 'Agent': 'Sova', 'Win%': 49.4, 'pickrate%': 5.3, 'kill%': 5,'K/D Ratio' : 0.97 },
-  { '_id': 14, 'Agent': 'Viper', 'Win%': 49.6, 'pickrate%': 4.9, 'kill%': 4.7,'K/D Ratio' : 0.97 },
-  { '_id': 15, 'Agent': 'Cypher', 'Win%': 48.9, 'pickrate%': 4.1, 'kill%': 3.9,'K/D Ratio' : 0.99 },
-  { '_id': 16, 'Agent': 'Chamber', 'Win%': 48.2, 'pickrate%': 3.1, 'kill%': 3.2,'K/D Ratio' : 1.06 },
-  { '_id': 17, 'Agent': 'KAY/O', 'Win%': 46.3, 'pickrate%': 3.3, 'kill%': 3.1,'K/D Ratio' : 0.90 },
-  { '_id': 18, 'Agent': 'Breach', 'Win%': 48.7, 'pickrate%': 2.5, 'kill%': 2.4,'K/D Ratio' : 0.94 },
-  { '_id': 19, 'Agent': 'Astra', 'Win%': 49.4, 'pickrate%': 1.4, 'kill%': 1.4,'K/D Ratio' : 1.03 },
-  { '_id': 20, 'Agent': 'Harbor', 'Win%': 46.1, 'pickrate%': 1, 'kill%': 0.9,'K/D Ratio' : 0.89 },
+  { '_id': 1, 'Agent': 'Reyna', 'Winrate': 50.2, 'pickrate': 12.7, 'killrate': 14.8,'KDRatio' : 1.15 },
+  { '_id': 2, 'Agent': 'Jett', 'Winrate': 49.3, 'pickrate': 9.4, 'killrate': 10.6,'KDRatio' : 1.08 },
+  { '_id': 3, 'Agent': 'Neon', 'Winrate': 48.1, 'pickrate': 2.5, 'killrate': 2.6,'KDRatio' : 0.98 }, 
+  { '_id': 4, 'Agent': 'Phoenix', 'Winrate': 50.1, 'pickrate':  3.9, 'killrate': 4.2,'KDRatio' : 1.09 },
+  { '_id': 5, 'Agent': 'Fade', 'Winrate': 49.4, 'pickrate': 4.8, 'killrate': 4.5,'KDRatio' : 0.93 },
+  { '_id': 6, 'Agent': 'Brimstone', 'Winrate': 50.6, 'pickrate': 5.2, 'killrate': 4.9,'KDRatio' : 0.96 }, 
+  { '_id': 7, 'Agent': 'Yoru', 'Winrate': 46.6, 'pickrate': 2.2, 'killrate': 2.1,'KDRatio' : 0.97 },
+  { '_id': 8, 'Agent': 'Skye', 'Winrate': 49, 'pickrate': 3.5, 'killrate': 3.2,'KDRatio' : 0.92 },
+  { '_id': 9, 'Agent': 'Sage', 'Winrate': 50.2, 'pickrate': 11.3, 'killrate': 9.4,'KDRatio' : 0.90 },
+  { '_id': 10, 'Agent': 'Raze', 'Winrate': 49.9, 'pickrate': 7.1, 'killrate': 7.5,'KDRatio' : 1.03 },
+  { '_id': 11, 'Agent': 'Omen', 'Winrate': 48.4, 'pickrate': 6.3, 'killrate': 6.1,'KDRatio' : 0.97 },
+  { '_id': 12, 'Agent': 'Killjoy', 'Winrate': 50.9, 'pickrate': 5.5, 'killrate': 5.1,'KDRatio' : 0.99 }, 
+  { '_id': 13, 'Agent': 'Sova', 'Winrate': 49.4, 'pickrate': 5.3, 'killrate': 5,'KDRatio' : 0.97 },
+  { '_id': 14, 'Agent': 'Viper', 'Winrate': 49.6, 'pickrate': 4.9, 'killrate': 4.7,'KDRatio' : 0.97 },
+  { '_id': 15, 'Agent': 'Cypher', 'Winrate': 48.9, 'pickrate': 4.1, 'killrate': 3.9,'KDRatio' : 0.99 },
+  { '_id': 16, 'Agent': 'Chamber', 'Winrate': 48.2, 'pickrate': 3.1, 'killrate': 3.2,'KDRatio' : 1.06 },
+  { '_id': 17, 'Agent': 'KAY/O', 'Winrate': 46.3, 'pickrate': 3.3, 'killrate': 3.1,'KDRatio' : 0.90 },
+  { '_id': 18, 'Agent': 'Breach', 'Winrate': 48.7, 'pickrate': 2.5, 'killrate': 2.4,'KDRatio' : 0.94 },
+  { '_id': 19, 'Agent': 'Astra', 'Winrate': 49.4, 'pickrate': 1.4, 'killrate': 1.4,'KDRatio' : 1.03 },
+  { '_id': 20, 'Agent': 'Harbor', 'Winrate': 46.1, 'pickrate': 1.0, 'killrate': 0.9,'KDRatio' : 0.89 },
 ]);
 
-// Run a find command to view items sold on April 4th, 2014.
-//db.sales.find({ date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });//
-
-// Build an aggregation to view total sales for each product in 2014.
-//const aggregation = [
- // { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
- // { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
-//];
-
-// Run the aggregation and open a cursor to the results.
-// Use toArray() to exhaust the cursor to return the whole result set.
-// You can use hasNext()/next() to iterate through the cursor page by page.
-//db.sales.aggregate(aggregation);
