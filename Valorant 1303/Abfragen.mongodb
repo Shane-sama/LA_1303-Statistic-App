@@ -1,4 +1,4 @@
-
+//DELETE THE "//" INFRONT OF EVERY COMMAND YOU WANT TO USE!!!
 use('Valorant');
 
 
@@ -15,7 +15,7 @@ db.Item.find().sort({Agent : 1, killrate : -1})
 //db.Item.find({ KDRatio: { $lt : 1 }})
 
 
-//delete the // infront of limit if you want to limit the results to a certain amount
+//Use this to limit the amount of results to a certain amount
  //.limit(2) 
 
 
